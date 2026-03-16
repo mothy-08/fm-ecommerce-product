@@ -1,0 +1,65 @@
+/* || GLOBAL VARIABLES */
+:root {
+  /* raw */
+  --color-grayish-blue: hsl(220, 14%, 75%);
+  --color-light-grayish-blue: hsl(223, 64%, 98%);
+
+  /* semantic */
+  --color-background: hsl(0, 0%, 100%);
+
+  --color-foreground: hsl(220, 13%, 13%);
+  --color-foreground-muted: hsl(219, 9%, 45%);
+
+  --color-button-background: hsl(26, 100%, 55%);
+  --color-button-background-hover: hsl(25, 100%, 94%);
+
+  /* (with 75% opacity for lightbox background) */
+  --color-black: hsl(0, 0%, 0%);
+
+  /* TODO: fluid typography (see utopia.fyi) */
+  --body-text: 1rem;
+}
+
+/* || UTILITY CLASSES */
+
+/* || CSS RESETS */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+*:not(dialog) {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  font: inherit;
+}
+
+ul[role="list"] {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+body {
+  min-height: 100svh;
+  line-height: 1.5;
+
+  font-family: "Kumbh Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "YOPQ" 300;
+}
