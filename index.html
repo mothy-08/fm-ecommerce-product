@@ -1,44 +1,196 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A product site to test out my HTML, CSS, and JS fundamentals without using any frontend frameworks like React."
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>E-commerce Product</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <a href="/">
+        <img
+          src="images/logo.svg"
+          alt="sneakers - Home"
+          width="138"
+          height="20"
+        />
+      </a>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | E-commerce product page</title>
+      <!-- TODO: mobile and desktop functionality -->
+      <button
+        aria-label="Open navigation menu"
+        aria-expanded="true"
+        aria-controls="primary-navigation"
+      >
+        <img src="images/icon-menu.svg" alt="" width="16" height="15" />
+      </button>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+      <!-- <nav id="primary-navigation" inert hidden> -->
+      <nav id="primary-navigation">
+        <button aria-label="Close navigation menu">
+          <img src="images/icon-close.svg" alt="" width="14" height="15" />
+        </button>
 
-  Collections
-  Men
-  Women
-  About
-  Contact
+        <ul role="list">
+          <li>
+            <a href="">Collections</a>
+          </li>
+          <li>
+            <a href="">Men</a>
+          </li>
+          <li>
+            <a href="">Women</a>
+          </li>
+          <li>
+            <a href="">About</a>
+          </li>
+          <li>
+            <a href="">Contact</a>
+          </li>
+        </ul>
+      </nav>
 
-  Sneaker Company
+      <button type="button" aria-label="Open cart">
+        <img src="images/icon-cart.svg" alt="" width="22" height="20" />
+      </button>
 
-  Fall Limited Edition Sneakers
+      <button type="button" aria-label="Open profile">
+        <img src="images/image-avatar.png" alt="" width="100" height="100" />
+      </button>
+    </header>
 
-  These low-profile sneakers are your perfect casual wear companion. Featuring a 
-  durable rubber outer sole, they’ll withstand everything the weather can offer.
+    <main>
+      <article>
+        <header>
+          <div>
+            <div>
+              <img
+                src="images/image-product-1.jpg"
+                alt=""
+                width="1000"
+                height="1000"
+              />
+              <img
+                src="images/image-product-2.jpg"
+                alt=""
+                width="1000"
+                height="1000"
+              />
+              <img
+                src="images/image-product-3.jpg"
+                alt=""
+                width="1000"
+                height="1000"
+              />
+              <img
+                src="images/image-product-4.jpg"
+                alt=""
+                width="1000"
+                height="1000"
+              />
+            </div>
 
-  $125.00
-  50%
-  $250.00
+            <div>
+              <button aria-label="Show previous image">
+                <img
+                  src="images/icon-previous.svg"
+                  alt=""
+                  width="12"
+                  height="18"
+                />
+              </button>
 
-  0
-  Add to cart
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+              <button aria-label="Show next image">
+                <img src="images/icon-next.svg" alt="" width="13" height="18" />
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <button aria-label="Show first product image">
+              <img
+                src="images/image-product-1-thumbnail.jpg"
+                alt=""
+                width="176"
+                height="176"
+              />
+            </button>
+
+            <button aria-label="Show second product image">
+              <img
+                src="images/image-product-2-thumbnail.jpg"
+                alt=""
+                width="176"
+                height="176"
+              />
+            </button>
+
+            <button aria-label="Show third product image">
+              <img
+                src="images/image-product-3-thumbnail.jpg"
+                alt=""
+                width="176"
+                height="176"
+              />
+            </button>
+
+            <button aria-label="Show fourth product image">
+              <img
+                src="images/image-product-4-thumbnail.jpg"
+                alt=""
+                width="176"
+                height="176"
+              />
+            </button>
+          </div>
+
+          <div>
+            <span>Sneaker Company</span>
+            <h1>Fall Limited Edition Sneakers</h1>
+            <p>
+              These low-profile sneakers are your perfect casual wear companion.
+              Featuring a durable rubber outer sole, they’ll withstand
+              everything the weather can offer.
+            </p>
+          </div>
+        </header>
+
+        <div>
+          <data value="125 USD">$125.00</data>
+          <data value="50% discount">50%</data>
+          <data value="250 USD">$250.00</data>
+        </div>
+
+        <div>
+          <button aria-label="Reduce quantity by 1">
+            <img src="images/icon-minus.svg" alt="" width="12" height="4" />
+          </button>
+
+          <data value="0 quantity">0</data>
+
+          <button aria-label="Increase quantity by 1">
+            <img src="images/icon-plus.svg" alt="" width="12" height="12" />
+          </button>
+        </div>
+
+        <button>
+          <img src="images/icon-cart.svg" alt="" width="22" height="20" />
+          Add to cart
+        </button>
+      </article>
+    </main>
+  </body>
 </html>
+
