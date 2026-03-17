@@ -1,26 +1,37 @@
 /* || GLOBAL VARIABLES */
 :root {
   /* raw */
-  --color-grayish-blue: hsl(220, 14%, 75%);
-  --color-light-grayish-blue: hsl(223, 64%, 98%);
+  --clr-grayish-blue: hsl(220, 14%, 75%);
+  --clr-light-grayish-blue: hsl(223, 64%, 98%);
+  --clr-black: hsl(0, 0%, 0%); /* (with 75% opacity for lightbox background) */
+
+  --size-16: 1rem;
+  --size-20: 1.25rem;
+  --size-22: 1.375rem;
+  --size-24: 1.5rem;
+  --size-56: 3.5rem;
 
   /* semantic */
-  --color-background: hsl(0, 0%, 100%);
+  --clr-bg: hsl(0, 0%, 100%);
 
-  --color-foreground: hsl(220, 13%, 13%);
-  --color-foreground-muted: hsl(219, 9%, 45%);
+  --clr-fg: hsl(220, 13%, 13%);
+  --clr-fg-muted: hsl(219, 9%, 45%);
 
-  --color-button-background: hsl(26, 100%, 55%);
-  --color-button-background-hover: hsl(25, 100%, 94%);
+  --clr-btn-bg: hsl(26, 100%, 55%);
+  --clr-btn-bg-hover: hsl(25, 100%, 94%);
 
-  /* (with 75% opacity for lightbox background) */
-  --color-black: hsl(0, 0%, 0%);
+  --clr-nav-bg: hsl(0, 0%, 100%);
+
+  --clr-nav-overlay: rgb(0 0 0 /0.75);
 
   /* TODO: fluid typography (see utopia.fyi) */
   --body-text: 1rem;
 }
 
 /* || UTILITY CLASSES */
+.nav-open {
+  overflow: hidden; /* to disable scrolling on background */
+}
 
 /* || CSS RESETS */
 *,
@@ -41,6 +52,9 @@ img {
 
 button {
   font: inherit;
+  border: 0;
+  background: transparent;
+  padding: 0;
 }
 
 ul[role="list"] {
@@ -62,4 +76,71 @@ body {
   font-weight: 400;
   font-style: normal;
   font-variation-settings: "YOPQ" 300;
+}
+
+/* || NAVIGATION LAYOUT */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--size-16);
+  padding: var(--size-24);
+}
+
+.primary-nav[hidden] {
+  display: none;
+}
+
+.primary-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: min(250px, 70vw);
+  height: 100%;
+  background: var(--clr-nav-bg);
+
+  padding: var(--size-24);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-56);
+
+  z-index: 1;
+}
+
+.primary-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-24);
+}
+
+.primary-nav a {
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--clr-nav-overlay);
+  z-index: 0;
+}
+
+.open-nav-btn {
+  order: 0;
+}
+
+.logo {
+  flex: 1;
+  order: 1;
+}
+
+.cart-btn {
+  order: 2;
+}
+
+.avatar-btn {
+  order: 3;
+  width: 24px;
 }

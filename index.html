@@ -14,6 +14,7 @@
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
+
     <title>E-commerce Product</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,8 +29,8 @@
     <script src="main.js" defer></script>
   </head>
   <body>
-    <header>
-      <a href="/">
+    <header class="main-header">
+      <a href="/" class="logo">
         <img
           src="images/logo.svg"
           alt="sneakers - Home"
@@ -40,45 +41,58 @@
 
       <!-- TODO: mobile and desktop functionality -->
       <button
+        id="open-nav-btn"
+        class="open-nav-btn"
+        type="button"
         aria-label="Open navigation menu"
-        aria-expanded="true"
-        aria-controls="primary-navigation"
+        aria-expanded="false"
+        aria-controls="primary-nav"
       >
         <img src="images/icon-menu.svg" alt="" width="16" height="15" />
       </button>
 
-      <!-- <nav id="primary-navigation" inert hidden> -->
-      <nav id="primary-navigation">
-        <button aria-label="Close navigation menu">
+      <nav
+        id="primary-nav"
+        class="primary-nav"
+        aria-label="Primary navigation links"
+        inert
+        hidden
+      >
+        <button
+          id="close-nav-btn"
+          class="close-nav-btn"
+          type="button"
+          aria-label="Close navigation menu"
+        >
           <img src="images/icon-close.svg" alt="" width="14" height="15" />
         </button>
 
         <ul role="list">
           <li>
-            <a href="">Collections</a>
+            <a href="#">Collections</a>
           </li>
           <li>
-            <a href="">Men</a>
+            <a href="#">Men</a>
           </li>
           <li>
-            <a href="">Women</a>
+            <a href="#">Women</a>
           </li>
           <li>
-            <a href="">About</a>
+            <a href="#">About</a>
           </li>
           <li>
-            <a href="">Contact</a>
+            <a href="#">Contact</a>
           </li>
         </ul>
       </nav>
 
-      <div class="menu-overlay" aria-hidden="true"></div>
+      <div id="nav-overlay" class="nav-overlay" aria-hidden="true" hidden></div>
 
-      <button type="button" aria-label="Open cart">
+      <button type="button" class="cart-btn" aria-label="Open cart">
         <img src="images/icon-cart.svg" alt="" width="22" height="20" />
       </button>
 
-      <button type="button" aria-label="Open profile">
+      <button type="button" class="avatar-btn" aria-label="Open profile">
         <img src="images/image-avatar.png" alt="" width="100" height="100" />
       </button>
     </header>
@@ -115,7 +129,7 @@
             </div>
 
             <div>
-              <button aria-label="Show previous image">
+              <button type="button" aria-label="Show previous image">
                 <img
                   src="images/icon-previous.svg"
                   alt=""
@@ -124,14 +138,14 @@
                 />
               </button>
 
-              <button aria-label="Show next image">
+              <button type="button" aria-label="Show next image">
                 <img src="images/icon-next.svg" alt="" width="13" height="18" />
               </button>
             </div>
           </div>
 
           <div>
-            <button aria-label="Show first product image">
+            <button type="button" aria-label="Show first product image">
               <img
                 src="images/image-product-1-thumbnail.jpg"
                 alt=""
@@ -140,7 +154,7 @@
               />
             </button>
 
-            <button aria-label="Show second product image">
+            <button type="button" aria-label="Show second product image">
               <img
                 src="images/image-product-2-thumbnail.jpg"
                 alt=""
@@ -149,7 +163,7 @@
               />
             </button>
 
-            <button aria-label="Show third product image">
+            <button type="button" aria-label="Show third product image">
               <img
                 src="images/image-product-3-thumbnail.jpg"
                 alt=""
@@ -158,7 +172,7 @@
               />
             </button>
 
-            <button aria-label="Show fourth product image">
+            <button type="button" aria-label="Show fourth product image">
               <img
                 src="images/image-product-4-thumbnail.jpg"
                 alt=""
@@ -186,18 +200,18 @@
         </div>
 
         <div>
-          <button aria-label="Reduce quantity by 1">
+          <button type="button" aria-label="Reduce quantity by 1">
             <img src="images/icon-minus.svg" alt="" width="12" height="4" />
           </button>
 
           <data value="0 quantity">0</data>
 
-          <button aria-label="Increase quantity by 1">
+          <button type="button" aria-label="Increase quantity by 1">
             <img src="images/icon-plus.svg" alt="" width="12" height="12" />
           </button>
         </div>
 
-        <button>
+        <button type="button">
           <img src="images/icon-cart.svg" alt="" width="22" height="20" />
           Add to cart
         </button>
