@@ -20,6 +20,8 @@
   --clr-btn-bg: hsl(26, 100%, 55%);
   --clr-btn-bg-hover: hsl(25, 100%, 94%);
 
+  --clr-btn-round-bg: hsl(0, 0%, 100%);
+
   --clr-nav-bg: hsl(0, 0%, 100%);
 
   --clr-nav-overlay: rgb(0 0 0 /0.75);
@@ -143,4 +145,57 @@ body {
 .avatar-btn {
   order: 3;
   width: 24px;
+}
+
+/* || IMAGE CAROUSEL */
+.image-carousel {
+  height: 300px;
+
+  display: flex;
+
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+
+  anchor-name: --image-carousel;
+}
+
+.image-carousel::scroll-button(*) {
+  width: 40px;
+  height: 40px;
+
+  border: 0;
+  padding: 12px;
+  border-radius: 50%;
+  background-color: var(--clr-btn-round-bg);
+
+  cursor: pointer;
+
+  position: absolute;
+  position-anchor: --image-carousel;
+  top: anchor(start);
+  bottom: anchor(end);
+  margin-block: auto;
+}
+
+.image-carousel::scroll-button(*):active {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.image-carousel::scroll-button(*):disabled {
+  opacity: 0.5;
+}
+
+.image-carousel::scroll-button(left) {
+  content: url(images/icon-previous.svg) / "Previous";
+  left: 16px;
+}
+
+.image-carousel::scroll-button(right) {
+  content: url(images/icon-next.svg) / "Next";
+  right: 16px;
+}
+
+.image-carousel li {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
 }
