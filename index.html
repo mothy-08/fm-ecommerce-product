@@ -100,7 +100,6 @@
     <main>
       <article>
         <header>
-          <!-- <div class="carousel-wrapper"> -->
           <ul class="image-carousel" role="list">
             <li>
               <img
@@ -138,30 +137,6 @@
               />
             </li>
           </ul>
-
-          <!-- <button -->
-          <!--   type="button" -->
-          <!--   id="prev-btn" -->
-          <!--   class="prev-btn" -->
-          <!--   aria-label="Show previous image" -->
-          <!-- > -->
-          <!--   <img -->
-          <!--     src="images/icon-previous.svg" -->
-          <!--     alt="" -->
-          <!--     width="12" -->
-          <!--     height="18" -->
-          <!--   /> -->
-          <!-- </button> -->
-          <!---->
-          <!-- <button -->
-          <!--   type="button" -->
-          <!--   id="next-btn" -->
-          <!--   class="next-btn" -->
-          <!--   aria-label="Show next image" -->
-          <!-- > -->
-          <!--   <img src="images/icon-next.svg" alt="" width="13" height="18" /> -->
-          <!-- </button> -->
-          <!-- </div> -->
 
           <!-- for desktop functionality -->
           <div hidden>
@@ -202,8 +177,8 @@
             </button>
           </div>
 
-          <div>
-            <span>Sneaker Company</span>
+          <div class="content-wrapper">
+            <span aria-hidden="true">Sneaker Company</span>
             <h1>Fall Limited Edition Sneakers</h1>
             <p>
               These low-profile sneakers are your perfect casual wear companion.
@@ -213,25 +188,25 @@
           </div>
         </header>
 
-        <div>
-          <data value="125 USD">$125.00</data>
-          <data value="50% discount">50%</data>
-          <data value="250 USD">$250.00</data>
+        <div class="price-wrapper">
+          <data class="discounted-price" value="125 USD">$125.00</data>
+          <data class="discount-rate" value="50% discount">50%</data>
+          <data class="original-price" value="250 USD">$250.00</data>
         </div>
 
-        <div>
+        <div class="quantity-wrapper">
           <button type="button" aria-label="Reduce quantity by 1">
             <img src="images/icon-minus.svg" alt="" width="12" height="4" />
           </button>
 
-          <data value="0 quantity">0</data>
+          <data class="quantity" value="0 quantity">0</data>
 
           <button type="button" aria-label="Increase quantity by 1">
             <img src="images/icon-plus.svg" alt="" width="12" height="12" />
           </button>
         </div>
 
-        <button type="button">
+        <button class="add-to-cart-btn" type="button">
           <img src="images/icon-cart.svg" alt="" width="22" height="20" />
           Add to cart
         </button>

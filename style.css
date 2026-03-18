@@ -5,6 +5,7 @@
   --clr-light-grayish-blue: hsl(223, 64%, 98%);
   --clr-black: hsl(0, 0%, 0%); /* (with 75% opacity for lightbox background) */
 
+  --size-8: 0.5rem;
   --size-16: 1rem;
   --size-20: 1.25rem;
   --size-22: 1.375rem;
@@ -23,6 +24,11 @@
   --clr-btn-round-bg: hsl(0, 0%, 100%);
 
   --clr-nav-bg: hsl(0, 0%, 100%);
+
+  --clr-badge-bg: hsl(0, 0%, 0%);
+  --clr-badge-fg: hsl(0, 0%, 100%);
+
+  --clr-qty-bg: hsl(223, 64%, 98%);
 
   --clr-nav-overlay: rgb(0 0 0 /0.75);
 
@@ -149,11 +155,9 @@ body {
 
 /* || IMAGE CAROUSEL */
 .image-carousel {
-  height: 300px;
-
   display: flex;
 
-  overflow-x: scroll;
+  overflow-x: hidden;
   scroll-snap-type: x mandatory;
 
   anchor-name: --image-carousel;
@@ -198,4 +202,106 @@ body {
 .image-carousel li {
   flex: 0 0 100%;
   scroll-snap-align: center;
+}
+
+.image-carousel img {
+  max-height: 300px;
+  object-fit: cover;
+}
+
+/* || CONTENT */
+.content-wrapper {
+  margin: var(--size-24);
+}
+
+.content-wrapper span {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--clr-fg-muted);
+  letter-spacing: 2px;
+  margin-block-end: -12px;
+}
+
+.content-wrapper h1 {
+  line-height: 1.2;
+  font-size: 1.75rem;
+  margin-block-start: 0.325em;
+}
+
+.content-wrapper p {
+  margin-block-start: 1.25em;
+  color: var(--clr-fg-muted);
+}
+
+.price-wrapper {
+  margin-inline: 24px;
+  margin-block-start: 16px;
+
+  display: flex;
+  justify-content: center;
+  gap: var(--size-16);
+  align-items: center;
+}
+
+.discounted-price {
+  font-weight: 700;
+  font-size: 1.75rem;
+}
+
+.discount-rate {
+  padding: 2px 8px;
+  background-color: var(--clr-badge-bg);
+  color: var(--clr-badge-fg);
+  border-radius: 4px;
+}
+
+.original-price {
+  flex: 1;
+  text-decoration: line-through;
+  font-weight: 700;
+  color: var(--clr-fg-muted);
+  text-align: end;
+}
+
+.quantity-wrapper {
+  margin-inline: 24px;
+  margin-block-start: 16px;
+  padding: 16px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--clr-qty-bg);
+
+  border-radius: 10px;
+}
+
+.quantity {
+  flex: 1;
+  text-align: center;
+}
+
+.add-to-cart-btn {
+  margin-inline: auto;
+  margin-block-start: 16px;
+
+  padding: 16px 20px;
+
+  width: calc(100% - 48px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  background-color: var(--clr-btn-bg);
+
+  border-radius: 10px;
+
+  font-weight: 700;
+}
+
+.add-to-cart-btn img {
+  filter: brightness(0);
 }
