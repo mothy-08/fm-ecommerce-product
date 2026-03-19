@@ -92,6 +92,47 @@
         <img src="images/icon-cart.svg" alt="" width="22" height="20" />
       </button>
 
+      <!-- 360 x 256 -->
+      <div class="cart-overlay">
+        <h2>Cart</h2>
+        <div class="cart-data">
+          <!-- <p>Your cart is empty.</p> -->
+
+          <div class="data-wrapper">
+            <div class="data-content">
+              <img
+                src="images/image-product-1-thumbnail.jpg"
+                alt=""
+                width="176"
+                height="176"
+              />
+
+              <div class="data-values">
+                <span class="muted">Fall Limited Edition Sneakers</span>
+                <div class="data-price">
+                  <data class="muted" value="125 USD">$125.00</data>
+                  <span class="muted"> x </span>
+                  <data class="muted" value="3">3</data>
+                  <data class="font-bold" value="375 USD">$375.00</data>
+                </div>
+              </div>
+
+              <button type="button" aria-label="Remove item from cart">
+                <img
+                  src="images/icon-delete.svg"
+                  alt=""
+                  width="14"
+                  height="16"
+                />
+              </button>
+            </div>
+
+            <!-- TODO: create one class for primary btn -->
+            <button type="button" class="checkout-btn">Checkout</button>
+          </div>
+        </div>
+      </div>
+
       <button type="button" class="avatar-btn" aria-label="Open profile">
         <img src="images/image-avatar.png" alt="" width="100" height="100" />
       </button>
@@ -194,19 +235,27 @@
           <data class="original-price" value="250 USD">$250.00</data>
         </div>
 
-        <div class="quantity-wrapper">
-          <button type="button" aria-label="Reduce quantity by 1">
+        <div class="qty-wrapper">
+          <button
+            id="decrease-qty-btn"
+            type="button"
+            aria-label="Decrease quantity by 1"
+          >
             <img src="images/icon-minus.svg" alt="" width="12" height="4" />
           </button>
 
-          <data class="quantity" value="0 quantity">0</data>
+          <data id="qty" class="qty" value="0">0</data>
 
-          <button type="button" aria-label="Increase quantity by 1">
+          <button
+            id="increase-qty-btn"
+            type="button"
+            aria-label="Increase quantity by 1"
+          >
             <img src="images/icon-plus.svg" alt="" width="12" height="12" />
           </button>
         </div>
 
-        <button class="add-to-cart-btn" type="button">
+        <button id="add-to-cart-btn" class="add-to-cart-btn" type="button">
           <img src="images/icon-cart.svg" alt="" width="22" height="20" />
           Add to cart
         </button>

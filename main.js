@@ -62,3 +62,30 @@ document.addEventListener("keydown", closeNavOnEsc);
 openNavBtn.addEventListener("click", openNav);
 closeNavBtn.addEventListener("click", closeNav);
 navOverlay.addEventListener("click", closeNav);
+
+const qty = document.getElementById("qty");
+const decreaseQtyBtn = document.getElementById("decrease-qty-btn");
+const increaseQtyBtn = document.getElementById("increase-qty-btn");
+const addToCartBtn = document.getElementById("add-to-cart-btn");
+
+function increaseQtyByOne() {
+  let curr = Number(qty.textContent);
+  ++curr;
+
+  qty.textContent = curr;
+  qty.value = curr;
+}
+
+function decreaseQtyByOne() {
+  let curr = Number(qty.textContent);
+
+  if (curr > 0) {
+    --curr;
+  }
+
+  qty.textContent = curr;
+  qty.value = curr;
+}
+
+increaseQtyBtn.addEventListener("click", increaseQtyByOne);
+decreaseQtyBtn.addEventListener("click", decreaseQtyByOne);
