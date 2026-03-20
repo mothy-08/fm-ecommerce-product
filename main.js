@@ -1,67 +1,26 @@
-const NAV_OPEN = "nav-open";
-const ESCAPE_KEY = "Escape";
-const TAB_KEY = "Tab";
-
 const primaryNav = document.getElementById("primary-nav");
-const openNavBtn = document.getElementById("open-nav-btn");
-const closeNavBtn = document.getElementById("close-nav-btn");
-const navOverlay = document.getElementById("nav-overlay");
+const logo = document.getElementById("logo");
+const mobileNav = document.getElementById("mobile-nav");
+const desktopBreakpoint = window.matchMedia("(min-width: 48rem)");
 
-const focusableNavEls = Array.from(
-  primaryNav.querySelectorAll("button:not([disabled]), a[href]"),
-);
+function handleBreakpoint(event) {
+  if (event.matches) {
+    logo.after(primaryNav);
 
-function focusTrapOnNav(event) {
-  const first = focusableNavEls[0];
-  const last = focusableNavEls[focusableNavEls.length - 1];
-
-  if (event.key !== TAB_KEY) {
-    return;
-  }
-
-  if (event.shiftKey) {
-    if (document.activeElement === first) {
-      event.preventDefault();
-      last.focus();
+    if (mobileNav.open) {
+      mobileNav.close();
     }
   } else {
-    if (document.activeElement === last) {
-      event.preventDefault();
-      first.focus();
-    }
+    mobileNav.appendChild(primaryNav);
   }
 }
 
-function openNav() {
-  openNavBtn.ariaExpanded = "true";
-  primaryNav.hidden = false;
-  primaryNav.inert = false;
-  navOverlay.hidden = false;
-  document.body.classList.add(NAV_OPEN);
-  closeNavBtn.focus();
-  primaryNav.addEventListener("keydown", focusTrapOnNav);
-}
+desktopBreakpoint.addEventListener("change", handleBreakpoint);
+handleBreakpoint(desktopBreakpoint); // run once on init
 
-function closeNav() {
-  openNavBtn.ariaExpanded = "false";
-  primaryNav.hidden = true;
-  primaryNav.inert = true;
-  navOverlay.hidden = true;
-  document.body.classList.remove(NAV_OPEN);
-  openNavBtn.focus();
-  primaryNav.removeEventListener("keydown", focusTrapOnNav);
-}
-
-function closeNavOnEsc(event) {
-  if (event.key === ESCAPE_KEY && !primaryNav.inert) {
-    closeNav();
-  }
-}
-
-document.addEventListener("keydown", closeNavOnEsc);
-openNavBtn.addEventListener("click", openNav);
-closeNavBtn.addEventListener("click", closeNav);
-navOverlay.addEventListener("click", closeNav);
+mobileNav.addEventListener("click", (e) => {
+  if (e.target === mobileNav) mobileNav.close();
+});
 
 const qty = document.getElementById("qty");
 const decreaseQtyBtn = document.getElementById("decrease-qty-btn");

@@ -7,30 +7,36 @@
       name="description"
       content="A product site to test out my HTML, CSS, and JS fundamentals without using any frontend frameworks like React."
     />
-
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
-
     <title>E-commerce Product</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,300&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="style.css" />
-
     <script src="main.js" defer></script>
   </head>
   <body>
     <header class="main-header">
-      <a href="/" class="logo">
+      <button
+        id="open-nav-btn"
+        class="open-nav-btn"
+        type="button"
+        aria-label="Open navigation menu"
+        commandfor="mobile-nav"
+        command="show-modal"
+      >
+        <img src="images/icon-menu.svg" alt="" width="16" height="15" />
+      </button>
+
+      <a href="/" id="logo" class="logo">
         <img
           src="images/logo.svg"
           alt="sneakers - Home"
@@ -39,98 +45,83 @@
         />
       </a>
 
-      <!-- TODO: mobile and desktop functionality -->
-      <button
-        id="open-nav-btn"
-        class="open-nav-btn"
-        type="button"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        aria-controls="primary-nav"
-      >
-        <img src="images/icon-menu.svg" alt="" width="16" height="15" />
-      </button>
-
       <nav
         id="primary-nav"
         class="primary-nav"
         aria-label="Primary navigation links"
-        inert
-        hidden
       >
+        <ul role="list">
+          <li><a href="#">Collections</a></li>
+          <li><a href="#">Men</a></li>
+          <li><a href="#">Women</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+
+      <dialog id="mobile-nav" class="mobile-nav">
         <button
+          autofocus
           id="close-nav-btn"
           class="close-nav-btn"
           type="button"
           aria-label="Close navigation menu"
+          commandfor="mobile-nav"
+          command="close"
         >
           <img src="images/icon-close.svg" alt="" width="14" height="15" />
         </button>
+      </dialog>
 
-        <ul role="list">
-          <li>
-            <a href="#">Collections</a>
-          </li>
-          <li>
-            <a href="#">Men</a>
-          </li>
-          <li>
-            <a href="#">Women</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
-        </ul>
-      </nav>
-
-      <div id="nav-overlay" class="nav-overlay" aria-hidden="true" hidden></div>
-
-      <button type="button" class="cart-btn" aria-label="Open cart">
+      <button
+        type="button"
+        id="cart-btn"
+        class="cart-btn"
+        aria-label="Open cart"
+        popovertarget="cart-dialog"
+      >
         <img src="images/icon-cart.svg" alt="" width="22" height="20" />
       </button>
 
       <!-- 360 x 256 -->
-      <div class="cart-overlay">
+      <div id="cart-dialog" class="cart-dialog" popover>
         <h2>Cart</h2>
-        <div class="cart-data">
-          <!-- <p>Your cart is empty.</p> -->
 
-          <div class="data-wrapper">
-            <div class="data-content">
-              <img
-                src="images/image-product-1-thumbnail.jpg"
-                alt=""
-                width="176"
-                height="176"
-              />
+        <ul role="list">
+          <li class="cart-item">
+            <img
+              src="images/image-product-1-thumbnail.jpg"
+              alt=""
+              width="176"
+              height="176"
+            />
 
-              <div class="data-values">
-                <span class="muted">Fall Limited Edition Sneakers</span>
-                <div class="data-price">
-                  <data class="muted" value="125 USD">$125.00</data>
-                  <span class="muted"> x </span>
-                  <data class="muted" value="3">3</data>
-                  <data class="font-bold" value="375 USD">$375.00</data>
-                </div>
-              </div>
+            <div class="data-values">
+              <p class="muted">
+                <!-- Added machine-readable ID -->
+                <data value="SKU-12345">Fall Limited Edition Sneakers</data>
+              </p>
 
-              <button type="button" aria-label="Remove item from cart">
-                <img
-                  src="images/icon-delete.svg"
-                  alt=""
-                  width="14"
-                  height="16"
-                />
-              </button>
+              <p class="data-price">
+                <!-- Numeric value only for easier JS math -->
+                <data value="125.00">$125.00</data>
+
+                <!-- Changed from span to data -->
+                <data value="3" class="qty-multiplier">x 3</data>
+
+                <!-- Numeric value only -->
+                <data value="375.00" class="font-bold">$375.00</data>
+              </p>
             </div>
 
-            <!-- TODO: create one class for primary btn -->
-            <button type="button" class="checkout-btn">Checkout</button>
-          </div>
-        </div>
+            <button type="button" aria-label="Remove item from cart">
+              <img src="images/icon-delete.svg" alt="" width="14" height="16" />
+            </button>
+          </li>
+        </ul>
+
+        <!-- TODO: create one class for primary btn -->
+        <button type="button" class="checkout-btn">Checkout</button>
       </div>
 
       <button type="button" class="avatar-btn" aria-label="Open profile">
