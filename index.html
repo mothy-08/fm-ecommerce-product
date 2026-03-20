@@ -80,7 +80,13 @@
         aria-label="Open cart"
         popovertarget="cart-dialog"
       >
-        <img src="images/icon-cart.svg" alt="" width="22" height="20" />
+        <img
+          class="black"
+          src="images/icon-cart.svg"
+          alt=""
+          width="22"
+          height="20"
+        />
       </button>
 
       <!-- 360 x 256 -->
@@ -107,7 +113,7 @@
                 <!-- Changed from span to data -->
                 <data class="muted" value="3" class="qty-multiplier">x 3</data>
                 <!-- Numeric value only -->
-                <data value="375.00" class="font-bold">$375.00</data>
+                <data class="font-bold" value="375.00">$375.00</data>
               </span>
             </div>
 
@@ -132,7 +138,7 @@
 
     <main>
       <article>
-        <header>
+        <div class="left">
           <ul class="image-carousel" role="list">
             <li>
               <img
@@ -172,7 +178,7 @@
           </ul>
 
           <!-- for desktop functionality -->
-          <div hidden>
+          <dialog popover>
             <button type="button" aria-label="Show first product image">
               <img
                 src="images/image-product-1-thumbnail.jpg"
@@ -208,8 +214,10 @@
                 height="176"
               />
             </button>
-          </div>
+          </dialog>
+        </div>
 
+        <div>
           <div class="content-wrapper">
             <span aria-hidden="true">Sneaker Company</span>
             <h1>Fall Limited Edition Sneakers</h1>
@@ -219,38 +227,48 @@
               everything the weather can offer.
             </p>
           </div>
-        </header>
 
-        <div class="price-wrapper">
-          <data class="discounted-price" value="125 USD">$125.00</data>
-          <data class="discount-rate" value="50% discount">50%</data>
-          <data class="original-price" value="250 USD">$250.00</data>
+          <div class="price-wrapper">
+            <div>
+              <data class="discounted-price" value="125 USD">$125.00</data>
+              <data class="discount-rate" value="50% discount">50%</data>
+            </div>
+            <data class="original-price" value="250 USD">$250.00</data>
+          </div>
+
+          <div class="btn-qty-wrapper">
+            <div class="qty-wrapper">
+              <button
+                id="decrease-qty-btn"
+                type="button"
+                aria-label="Decrease quantity by 1"
+              >
+                <img src="images/icon-minus.svg" alt="" width="12" height="4" />
+              </button>
+
+              <data id="qty" class="qty" value="0">0</data>
+
+              <button
+                id="increase-qty-btn"
+                type="button"
+                aria-label="Increase quantity by 1"
+              >
+                <img src="images/icon-plus.svg" alt="" width="12" height="12" />
+              </button>
+            </div>
+
+            <button id="add-to-cart-btn" class="add-to-cart-btn" type="button">
+              <img
+                class="black"
+                src="images/icon-cart.svg"
+                alt=""
+                width="22"
+                height="20"
+              />
+              Add to cart
+            </button>
+          </div>
         </div>
-
-        <div class="qty-wrapper">
-          <button
-            id="decrease-qty-btn"
-            type="button"
-            aria-label="Decrease quantity by 1"
-          >
-            <img src="images/icon-minus.svg" alt="" width="12" height="4" />
-          </button>
-
-          <data id="qty" class="qty" value="0">0</data>
-
-          <button
-            id="increase-qty-btn"
-            type="button"
-            aria-label="Increase quantity by 1"
-          >
-            <img src="images/icon-plus.svg" alt="" width="12" height="12" />
-          </button>
-        </div>
-
-        <button id="add-to-cart-btn" class="add-to-cart-btn" type="button">
-          <img src="images/icon-cart.svg" alt="" width="22" height="20" />
-          Add to cart
-        </button>
       </article>
     </main>
   </body>
