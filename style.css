@@ -73,6 +73,7 @@ button {
   background: transparent;
   border: 0;
   padding: 0;
+  cursor: pointer;
 }
 
 ul[role="list"] {
@@ -102,19 +103,18 @@ body {
 
 /* || HEADER LAYOUT */
 .main-header {
+  width: min(var(--container-max-width), 100% - var(--size-24));
+  margin-inline: auto;
+  padding-block: var(--size-24);
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--fluid-header-space);
-
-  width: min(var(--container-max-width), 100% - var(--size-24));
-
-  margin-inline: auto;
-  padding-block: var(--size-24);
 }
 
 .open-nav-btn {
-  margin-block-start: 4px; /* micro-adjust to vertically align with siblings */
+  margin-block-start: 4px; /* vertically align with siblings */
 }
 
 .mobile-nav {
@@ -165,16 +165,16 @@ body {
   }
 
   .primary-nav a {
-    position: relative;
     display: inline-block;
     font-weight: 400;
     font-size: var(--size-14);
     color: var(--clr-fg-muted);
 
-    &:hover {
+    &:hover,
+    &:focus-visible {
       color: var(--clr-fg);
       text-decoration: underline var(--clr-nav-link-hover-underline) solid 3px;
-      text-underline-offset: calc(var(--size-24) + 1.25em);
+      text-underline-offset: 30px;
     }
   }
 }
@@ -184,15 +184,16 @@ body {
 }
 
 .cart-btn {
-  position: relative;
+  anchor-name: --cart-btn;
 }
 
 .cart-btn::after {
   content: "3";
 
-  position: absolute;
-  right: -8px;
-  top: -4px;
+  position: fixed;
+  position-anchor: --cart-btn;
+  top: calc(anchor(top) - 6px);
+  right: calc(anchor(right) - 6px);
 
   font-size: var(--size-12);
 
@@ -217,28 +218,69 @@ body {
 }
 
 .cart-dialog {
+  position-anchor: --cart-btn;
+  position: fixed;
+  top: anchor(bottom);
+  margin-top: 30px;
+
+  max-width: 360px;
+
+  border: 0;
   border-radius: 10px;
   box-shadow: 0 4px 8px var(--clr-black);
-  border: 0;
-  flex-direction: column;
+  padding-inline: 0;
+  padding-block-start: 24px;
+  padding-block-end: 32px;
+
+  & > * + * {
+    margin-block-start: 22px;
+  }
+
+  & > *:not(.separator) {
+    /* add a pseudo-padding for children except the horizontal separator */
+    margin-inline: 24px;
+  }
+}
+
+@media (min-width: 48rem) {
+  .cart-dialog {
+    justify-self: anchor-center;
+  }
 }
 
 .cart-dialog h2 {
+  line-height: 1;
   font-size: var(--size-16);
-  padding: 16px 24px;
-  border-bottom: 1px solid lightgrey;
 }
 
-.cart-data {
+.separator {
+  width: 100%;
+  height: 1px;
+  background-color: lightgray;
+}
+
+.cart-item {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 16px;
 }
 
-.cart-data p {
-  color: var(--clr-fg-muted);
+.cart-item-img {
+  width: 50px;
+  border-radius: 4px;
+}
+
+.remove-item-btn {
+  width: 16px;
+}
+
+.checkout-btn {
+  width: stretch;
+  width: calc(100% - 48px); /* fallback value for other browsers */
   font-weight: 700;
+  padding: 16px 20px;
+  border-radius: 10px;
+  background-color: var(--clr-btn-bg);
 }
 
 /* || TODO: responsive for mobile, tablet, and desktop  */
@@ -265,7 +307,7 @@ main {
   border-radius: 4px;
 }
 
-.data-values {
+.cart-item-values {
   display: flex;
   flex-direction: column;
 }
@@ -275,13 +317,6 @@ main {
 }
 
 .font-bold {
-  font-weight: 700;
-}
-
-.checkout-btn {
-  background-color: var(--clr-btn-bg);
-  border-radius: 10px;
-  padding: 16px 20px;
   font-weight: 700;
 }
 

@@ -59,7 +59,7 @@
         </ul>
       </nav>
 
-      <dialog id="mobile-nav" class="mobile-nav">
+      <dialog id="mobile-nav" class="mobile-nav" closedby="any">
         <button
           autofocus
           id="close-nav-btn"
@@ -84,37 +84,38 @@
       </button>
 
       <!-- 360 x 256 -->
-      <div id="cart-dialog" class="cart-dialog" popover>
+      <dialog autofocus id="cart-dialog" class="cart-dialog" popover>
         <h2>Cart</h2>
+
+        <div aria-hidden="true" class="separator"></div>
 
         <ul role="list">
           <li class="cart-item">
             <img
+              class="cart-item-img"
               src="images/image-product-1-thumbnail.jpg"
               alt=""
               width="176"
               height="176"
             />
 
-            <div class="data-values">
-              <p class="muted">
-                <!-- Added machine-readable ID -->
-                <data value="SKU-12345">Fall Limited Edition Sneakers</data>
-              </p>
-
-              <p class="data-price">
+            <div class="cart-item-values">
+              <span class="muted">Fall Limited Edition Sneakers</span>
+              <span>
                 <!-- Numeric value only for easier JS math -->
-                <data value="125.00">$125.00</data>
-
+                <data class="muted" value="125.00">$125.00</data>
                 <!-- Changed from span to data -->
-                <data value="3" class="qty-multiplier">x 3</data>
-
+                <data class="muted" value="3" class="qty-multiplier">x 3</data>
                 <!-- Numeric value only -->
                 <data value="375.00" class="font-bold">$375.00</data>
-              </p>
+              </span>
             </div>
 
-            <button type="button" aria-label="Remove item from cart">
+            <button
+              class="remove-item-btn"
+              type="button"
+              aria-label="Remove item from cart"
+            >
               <img src="images/icon-delete.svg" alt="" width="14" height="16" />
             </button>
           </li>
@@ -122,7 +123,7 @@
 
         <!-- TODO: create one class for primary btn -->
         <button type="button" class="checkout-btn">Checkout</button>
-      </div>
+      </dialog>
 
       <button type="button" class="avatar-btn" aria-label="Open profile">
         <img src="images/image-avatar.png" alt="" width="100" height="100" />

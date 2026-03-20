@@ -18,10 +18,6 @@ function handleBreakpoint(event) {
 desktopBreakpoint.addEventListener("change", handleBreakpoint);
 handleBreakpoint(desktopBreakpoint); // run once on init
 
-mobileNav.addEventListener("click", (e) => {
-  if (e.target === mobileNav) mobileNav.close();
-});
-
 const qty = document.getElementById("qty");
 const decreaseQtyBtn = document.getElementById("decrease-qty-btn");
 const increaseQtyBtn = document.getElementById("increase-qty-btn");
